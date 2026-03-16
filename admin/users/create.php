@@ -1,23 +1,15 @@
 <?php
 require_once '../../config/database.php';
 
-$id = $_GET['id'];
-
-$sql = "SELECT * FROM users WHERE id=$id";
-$result = mysqli_query($conn, $sql);
-$user = mysqli_fetch_assoc($result);
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $name = $_POST['name'];
     $email = $_POST['email'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $role = $_POST['role'];
 
-    $sql = "UPDATE users SET
-name='$name',
-email='$email',
-role='$role'
-WHERE id=$id";
+    $sql = "INSERT INTO users (name,email,password,role)
+VALUES ('$name','$email','$password','$role')";
 
     mysqli_query($conn, $sql);
 
@@ -25,15 +17,18 @@ WHERE id=$id";
 }
 ?>
 
-<h2>Edit User</h2>
+<h2>Add User</h2>
 
 <form method="POST">
 
     Name<br>
-    <input type="text" name="name" value="<?php echo $user['name']; ?>"><br><br>
+    <input type="text" name="name"><br><br>
 
     Email<br>
-    <input type="email" name="email" value="<?php echo $user['email']; ?>"><br><br>
+    <input type="email" name="email"><br><br>
+
+    Password<br>
+    <input type="password" name="password"><br><br>
 
     Role<br>
     <select name="role">
@@ -41,6 +36,6 @@ WHERE id=$id";
         <option value="admin">Admin</option>
     </select><br><br>
 
-    <button type="submit">Update</button>
+    <button type="submit">Save</button>
 
 </form>
