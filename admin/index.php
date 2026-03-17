@@ -62,7 +62,6 @@ $latestRooms = $conn->query("
     LIMIT 5
 ");
 ?>
-
 <div class="admin-card">
     <div class="admin-card-head">
         <h2>Tổng quan hệ thống</h2>
@@ -110,7 +109,7 @@ $latestRooms = $conn->query("
         <a class="admin-btn" href="<?= BASE_URL ?>admin/movies/index.php">Quản lý phim</a>
         <a class="admin-btn" href="<?= BASE_URL ?>admin/rooms/index.php">Quản lý phòng</a>
         <a class="admin-btn" href="<?= BASE_URL ?>admin/seats/index.php">Quản lý ghế</a>
-        <a class="admin-btn" href="<?= BASE_URL ?>admin/banners/index.php">Quản lý ghế</a>
+        <a class="admin-btn" href="<?= BASE_URL ?>admin/banners/index.php">Quản lý banners</a>
         <a class="admin-btn-outline" href="<?= BASE_URL ?>">Trang user</a>
     </div>
 </div>
@@ -132,24 +131,26 @@ $latestRooms = $conn->query("
                     </tr>
                 </thead>
                 <tbody>
-                <?php if ($latestMovies && $latestMovies->num_rows > 0): ?>
-                    <?php while ($movie = $latestMovies->fetch_assoc()): ?>
+                    <?php if ($latestMovies && $latestMovies->num_rows > 0): ?>
+                        <?php while ($movie = $latestMovies->fetch_assoc()): ?>
+                            <tr>
+                                <td><?= e($movie['title']) ?></td>
+                                <td><?= e($movie['language']) ?></td>
+                                <td><?= (int) $movie['duration_min'] ?> phút</td>
+                                <td>
+                                    <span class="admin-badge <?= $movie['status'] === 'now_showing' ? 'showing' : 'coming' ?>">
+                                        <?= e($movie['status']) ?>
+                                    </span>
+                                </td>
+                            </tr>
+                        <?php endwhile; ?>
+                    <?php else: ?>
                         <tr>
-                            <td><?= e($movie['title']) ?></td>
-                            <td><?= e($movie['language']) ?></td>
-                            <td><?= (int) $movie['duration_min'] ?> phút</td>
-                            <td>
-                                <span class="admin-badge <?= $movie['status'] === 'now_showing' ? 'showing' : 'coming' ?>">
-                                    <?= e($movie['status']) ?>
-                                </span>
+                            <td colspan="4">
+                                <div class="admin-empty">Chưa có dữ liệu phim.</div>
                             </td>
                         </tr>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="4"><div class="admin-empty">Chưa có dữ liệu phim.</div></td>
-                    </tr>
-                <?php endif; ?>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>
@@ -171,20 +172,22 @@ $latestRooms = $conn->query("
                     </tr>
                 </thead>
                 <tbody>
-                <?php if ($latestRooms && $latestRooms->num_rows > 0): ?>
-                    <?php while ($room = $latestRooms->fetch_assoc()): ?>
+                    <?php if ($latestRooms && $latestRooms->num_rows > 0): ?>
+                        <?php while ($room = $latestRooms->fetch_assoc()): ?>
+                            <tr>
+                                <td><?= e($room['room_name']) ?></td>
+                                <td><?= e($room['location_name']) ?></td>
+                                <td><?= (int) $room['capacity'] ?></td>
+                                <td><span class="admin-badge active"><?= e($room['status']) ?></span></td>
+                            </tr>
+                        <?php endwhile; ?>
+                    <?php else: ?>
                         <tr>
-                            <td><?= e($room['room_name']) ?></td>
-                            <td><?= e($room['location_name']) ?></td>
-                            <td><?= (int) $room['capacity'] ?></td>
-                            <td><span class="admin-badge active"><?= e($room['status']) ?></span></td>
+                            <td colspan="4">
+                                <div class="admin-empty">Chưa có dữ liệu phòng.</div>
+                            </td>
                         </tr>
-                    <?php endwhile; ?>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="4"><div class="admin-empty">Chưa có dữ liệu phòng.</div></td>
-                    </tr>
-                <?php endif; ?>
+                    <?php endif; ?>
                 </tbody>
             </table>
         </div>

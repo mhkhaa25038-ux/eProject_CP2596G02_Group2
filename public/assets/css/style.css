@@ -17,7 +17,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     overflow-x: hidden;
 }
@@ -46,7 +47,7 @@ img {
 .site-header {
     height: 88px;
     background: #020814;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     align-items: center;
     position: sticky;
@@ -170,26 +171,25 @@ img {
     position: relative;
     width: 100%;
     min-height: 30vh;
-    max-height: 500px;
+    min-height: 420px;
     overflow: hidden;
     border-bottom-left-radius: 26px;
     border-bottom-right-radius: 26px;
 }
 
 .hero-image {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+     width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
 }
 
 .hero-overlay {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(90deg, rgba(2,8,23,0.84) 0%, rgba(2,8,23,0.38) 42%, rgba(2,8,23,0.70) 100%),
-        linear-gradient(180deg, rgba(2,8,23,0.05) 0%, rgba(2,8,23,0.55) 100%);
+        linear-gradient(90deg, rgba(2, 8, 23, 0.84) 0%, rgba(2, 8, 23, 0.38) 42%, rgba(2, 8, 23, 0.70) 100%),
+        linear-gradient(180deg, rgba(2, 8, 23, 0.05) 0%, rgba(2, 8, 23, 0.55) 100%);
 }
 
 .hero-content {
@@ -250,8 +250,8 @@ img {
 }
 
 .hero-btn-secondary {
-    border: 1px solid rgba(255,255,255,0.14);
-    background: rgba(0,0,0,0.18);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(0, 0, 0, 0.18);
     color: #fff;
     padding: 20px 42px;
     border-radius: 22px;
@@ -476,7 +476,7 @@ textarea:focus {
     text-align: center;
     padding: 12px 18px;
     border-radius: 999px;
-    background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,10,22,0.18), rgba(255,255,255,0.08));
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 10, 22, 0.18), rgba(255, 255, 255, 0.08));
     border: 1px solid var(--border);
     font-weight: 700;
     letter-spacing: 2px;
@@ -733,8 +733,8 @@ textarea:focus {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(90deg, rgba(2,8,23,0.45) 0%, rgba(2,8,23,0.2) 45%, rgba(2,8,23,0.5) 100%),
-        linear-gradient(180deg, rgba(2,8,23,0.2) 0%, rgba(2,8,23,0.5) 100%);
+        linear-gradient(90deg, rgba(2, 8, 23, 0.45) 0%, rgba(2, 8, 23, 0.2) 45%, rgba(2, 8, 23, 0.5) 100%),
+        linear-gradient(180deg, rgba(2, 8, 23, 0.2) 0%, rgba(2, 8, 23, 0.5) 100%);
 }
 
 .auth-visual-content {
@@ -792,7 +792,7 @@ textarea:focus {
     border-radius: 18px;
     padding: 0 20px;
     background: #0b1528;
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     font-size: 16px;
     color: #ffffff;
 }
@@ -912,7 +912,7 @@ textarea:focus {
 .checkout-card,
 .success-box {
     background: #091223;
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     padding: 24px;
 }
@@ -938,7 +938,7 @@ textarea:focus {
 
 .order-box {
     background: #0b1425;
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 16px;
     padding: 18px;
 }
@@ -953,7 +953,7 @@ textarea:focus {
     justify-content: space-between;
     gap: 16px;
     padding: 10px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .order-line:last-child {
@@ -988,7 +988,7 @@ textarea:focus {
     padding: 14px;
     border-radius: 14px;
     background: #101a2d;
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .combo-item h4 {
@@ -1012,7 +1012,7 @@ textarea:focus {
     width: 100%;
     min-height: 46px;
     border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     background: #0b1528;
     color: #fff;
     padding: 0 12px;
@@ -1041,6 +1041,7 @@ textarea:focus {
 }
 
 @media (max-width: 640px) {
+
     .checkout-section,
     .success-section {
         padding: 24px 20px 40px;
@@ -1400,7 +1401,7 @@ textarea:focus {
 }
 
 .movie-detail-extra-item {
-    background: rgba(255,255,255,0.03);
+    background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(72, 95, 136, 0.22);
     border-radius: 16px;
     padding: 14px 16px;
@@ -1717,7 +1718,7 @@ textarea:focus {
     text-align: center;
     padding: 12px 18px;
     border-radius: 999px;
-    background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,16,16,0.18), rgba(255,255,255,0.08));
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 16, 16, 0.18), rgba(255, 255, 255, 0.08));
     border: 1px solid rgba(80, 109, 160, 0.28);
     color: #ffffff;
     font-weight: 800;
@@ -1815,7 +1816,7 @@ textarea:focus {
     justify-content: space-between;
     gap: 12px;
     padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .seat-summary-line span {
@@ -1831,7 +1832,7 @@ textarea:focus {
 
 .seat-summary-block {
     padding: 18px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .seat-summary-label {
@@ -2064,7 +2065,7 @@ textarea:focus {
     font-size: 13px;
 }
 
-.checkout-line-dark > strong {
+.checkout-line-dark>strong {
     color: #ffffff;
     font-size: 15px;
 }
@@ -2130,7 +2131,7 @@ textarea:focus {
     justify-content: space-between;
     gap: 12px;
     padding: 14px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .checkout-summary-line-dark span {
@@ -2452,7 +2453,7 @@ textarea:focus {
     justify-content: space-between;
     gap: 14px;
     padding-top: 8px;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .account-booking-detail-line span {
@@ -2472,7 +2473,7 @@ textarea:focus {
     gap: 14px;
     margin-top: 4px;
     padding-top: 10px;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .account-booking-total span {
@@ -2521,7 +2522,7 @@ textarea:focus {
     margin-top: 48px;
     background:
         linear-gradient(180deg, #050b18 0%, #020814 100%);
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     padding: 0;
 }
 
@@ -2597,8 +2598,8 @@ textarea:focus {
     min-height: 34px;
     padding: 0 12px;
     border-radius: 999px;
-    background: rgba(255,16,16,0.08);
-    border: 1px solid rgba(255,16,16,0.16);
+    background: rgba(255, 16, 16, 0.08);
+    border: 1px solid rgba(255, 16, 16, 0.16);
     color: #ffd7d9;
     font-size: 13px;
     font-weight: 700;
@@ -2606,7 +2607,7 @@ textarea:focus {
 }
 
 .footer-socials a:hover {
-    background: rgba(255,16,16,0.16);
+    background: rgba(255, 16, 16, 0.16);
     color: #ffffff;
 }
 
@@ -2614,7 +2615,7 @@ textarea:focus {
     width: min(1180px, 92%);
     margin: 0 auto;
     padding: 18px 0 24px;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
     display: flex;
     justify-content: space-between;
     gap: 16px;
@@ -2642,7 +2643,313 @@ textarea:focus {
         flex-direction: column;
     }
 }
+
 .disabled-link {
     color: #9aa6bb;
     cursor: default;
+}
+
+.hero-section {
+    width: 100%;
+    margin: 30px auto;
+}
+
+.hero-banner {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    transform: translateY(-50%);
+    color: white;
+}
+
+.hero-title {
+    font-size: 60px;
+    font-weight: 800;
+    margin: 15px 0;
+}
+
+.hero-tag {
+    background: red;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.hero-actions {
+    margin-top: 20px;
+}
+
+.hero-btn-primary {
+    background: red;
+    padding: 12px 28px;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero-btn-secondary {
+    margin-left: 10px;
+    border: 1px solid white;
+    padding: 12px 28px;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+}
+
+.banner-item {
+    display: none;
+    position: relative;
+}
+
+.banner-item:first-child {
+    display: block;
+}
+
+.hero-image {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+}
+
+.admin-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    background: #111827;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.admin-table td {
+    padding: 12px;
+    border-bottom: 1px solid #374151;
+}
+
+.admin-table img {
+    border-radius: 6px;
+}
+
+.btn-edit {
+    background: #f59e0b;
+    padding: 6px 10px;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.btn-delete {
+    background: #ef4444;
+    padding: 6px 10px;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.admin-table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.section-inner {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* HERO BANNER */
+
+.hero {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+/* ảnh banner */
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* overlay tối giúp chữ rõ */
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            rgba(0, 0, 0, 0.75) 0%,
+            rgba(0, 0, 0, 0.55) 35%,
+            rgba(0, 0, 0, 0.1) 70%);
+}
+
+.hero-content {
+    display: none;
+}
+
+.banner-item {
+    position: relative;
+}
+
+.hero-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.banner-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 450px;
+    border-radius: 12px;
+}
+
+.banner-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.banner-item {
+    min-width: 100%;
+}
+
+.banner-item img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.banner-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.banner-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.banner-btn.prev {
+    left: 10px;
+}
+
+.banner-btn.next {
+    right: 10px;
+}
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: transparent;
+}
+
+.admin-table thead {
+    background: #0f1b2d;
+}
+
+.admin-table th {
+    padding: 16px;
+    text-align: left;
+    color: #ccc;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.admin-table td {
+    padding: 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    vertical-align: middle;
+    color: #fff;
+}
+
+/* ===== IMAGE ===== */
+.banner-img {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ===== STATUS BADGE ===== */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.status-active {
+    background: rgba(0, 255, 150, 0.15);
+    color: #00ffa6;
+}
+
+.status-inactive {
+    background: rgba(255, 0, 0, 0.15);
+    color: #ff4d4d;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+    padding: 8px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.btn-edit {
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-delete {
+    background: #ff3b3b;
+    color: white;
+}
+
+/* spacing */
+.action-group {
+    display: flex;
+    gap: 10px;
 }
