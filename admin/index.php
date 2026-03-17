@@ -110,6 +110,7 @@ $latestRooms = $conn->query("
         <a class="admin-btn" href="<?= BASE_URL ?>admin/movies/index.php">Quản lý phim</a>
         <a class="admin-btn" href="<?= BASE_URL ?>admin/rooms/index.php">Quản lý phòng</a>
         <a class="admin-btn" href="<?= BASE_URL ?>admin/seats/index.php">Quản lý ghế</a>
+        <a class="admin-btn" href="<?= BASE_URL ?>admin/banners/index.php">Quản lý ghế</a>
         <a class="admin-btn-outline" href="<?= BASE_URL ?>">Trang user</a>
     </div>
 </div>
