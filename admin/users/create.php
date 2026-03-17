@@ -1,5 +1,8 @@
 <?php
 require_once '../../config/database.php';
+$conn = db_connect();
+
+require_once __DIR__ . '/../../includes/admin_layout_start.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -8,8 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $role = $_POST['role'];
 
-    $sql = "INSERT INTO users (name,email,password,role)
-VALUES ('$name','$email','$password','$role')";
+    $sql = "INSERT INTO users (name,email,password_hash,role)
+            VALUES ('$name','$email','$password','$role')";
 
     mysqli_query($conn, $sql);
 
@@ -17,25 +20,23 @@ VALUES ('$name','$email','$password','$role')";
 }
 ?>
 
-<h2>Add User</h2>
+<div class="content-card">
+    <div class="card-header">
+        <h2>Thêm người dùng</h2>
+    </div>
 
-<form method="POST">
+    <form method="POST" class="admin-form">
+        <input type="text" name="name" placeholder="Tên" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Mật khẩu" required>
 
-    Name<br>
-    <input type="text" name="name"><br><br>
+        <select name="role">
+            <option value="user">User</option>
+            <option value="admin">Admin</option>
+        </select>
 
-    Email<br>
-    <input type="email" name="email"><br><br>
+        <button type="submit" class="btn-primary">Lưu</button>
+    </form>
+</div>
 
-    Password<br>
-    <input type="password" name="password"><br><br>
-
-    Role<br>
-    <select name="role">
-        <option value="user">User</option>
-        <option value="admin">Admin</option>
-    </select><br><br>
-
-    <button type="submit">Save</button>
-
-</form>
+<?php require_once __DIR__ . '/../../includes/admin_layout_end.php'; ?>

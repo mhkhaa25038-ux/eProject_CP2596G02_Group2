@@ -10,9 +10,13 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 ?>
 
-<div class="section-inner">
-    <h1>Manage Banners</h1>
-    <a class="hero-btn-primary" href="create.php">Add Banner</a>
+<div class="content-card">
+
+    <div class="card-header">
+        <h2>Danh sách banner</h2>
+        <a href="create.php" class="btn-primary">+ Thêm banner</a>
+    </div>
+
     <table class="admin-table">
         <thead>
             <tr>
@@ -29,7 +33,9 @@ while ($row = mysqli_fetch_assoc($result)) {
                     <td><?= $banner['banner_id'] ?></td>
                     <td><?= $banner['title'] ?></td>
                     <td>
-                        <img class="banner-img" src="<?= BASE_URL ?>public/uploads/banners/<?= $banner['image_url'] ?>">
+                        <div class="banner-box">
+                            <img class="banner-img" src="<?= BASE_URL ?>public/uploads/banners/<?= $banner['image_url'] ?>">
+                        </div>
                     </td>
                     <td>
                         <span
@@ -48,5 +54,6 @@ while ($row = mysqli_fetch_assoc($result)) {
             <?php endforeach; ?>
         </tbody>
     </table>
+
 </div>
 <?php require_once '../../includes/admin_layout_end.php'; ?>

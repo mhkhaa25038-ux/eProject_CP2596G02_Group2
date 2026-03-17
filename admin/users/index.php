@@ -1,38 +1,51 @@
 <?php
 require_once '../../config/database.php';
-
-$sql = "SELECT * FROM users ORDER BY id DESC";
+$conn = db_connect();
+require_once __DIR__ . '/../../includes/admin_layout_start.php';
+$sql = "SELECT * FROM users ORDER BY user_id DESC";
 $result = mysqli_query($conn, $sql);
 ?>
-
-<h2>Manage Users</h2>
-
-<a href="create.php">Add User</a>
-
-<table border="1" cellpadding="10">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Role</th>
-        <th>Action</th>
-    </tr>
-
-    <?php while ($row = mysqli_fetch_assoc($result)) { ?>
-
-        <tr>
-            <td><?php echo $row['id']; ?></td>
-            <td><?php echo $row['name']; ?></td>
-            <td><?php echo $row['email']; ?></td>
-            <td><?php echo $row['role']; ?></td>
-
-            <td>
-                <a href="edit.php?id=<?php echo $row['id']; ?>">Edit</a>
-                <a href="delete.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Delete user?')">Delete</a>
-            </td>
-
-        </tr>
-
-    <?php } ?>
-
-</table>
+<div class="content-card">
+    <div class="card-header">
+        <h2>Danh sách người dùng</h2>
+        <a href="create.php" class="btn-primary">+ Thêm user</a>
+    </div>
+    <table class="admin-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên</th>
+                <th>Email</th>
+                <th>Vai trò</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if (mysqli_num_rows($result) > 0): ?>
+                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                    <tr>
+                        <td><?= $row['user_id'] ?></td>
+                        <td><?= $row['name'] ?></td>
+                        <td><?= $row['email'] ?></td>
+                        <td>
+                            <span class="badge <?= $row['role'] ?>">
+                                <?= $row['role'] ?>
+                            </span>
+                        </td>
+                        <td>
+                            <a href="edit.php?id=<?= $row['user_id'] ?>" class="action edit">Sửa</a>
+                            <a href="delete.php?id=<?= $row['user_id'] ?>" class="action delete">Xóa</a>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="5">
+                        <div class="empty">Chưa có user nào.</div>
+                    </td>
+                </tr>
+            <?php endif; ?>
+        </tbody>
+    </table>
+</div>
+<?php require_once __DIR__ . '/../../includes/admin_layout_end.php'; ?>

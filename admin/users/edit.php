@@ -1,9 +1,10 @@
 <?php
 require_once '../../config/database.php';
-
+require_once __DIR__ . '/../../includes/admin_layout_start.php';
+$conn = db_connect();
 $id = $_GET['id'];
 
-$sql = "SELECT * FROM users WHERE id=$id";
+$sql = "SELECT * FROM users WHERE user_id=$id";
 $result = mysqli_query($conn, $sql);
 $user = mysqli_fetch_assoc($result);
 
@@ -17,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 name='$name',
 email='$email',
 role='$role'
-WHERE id=$id";
+WHERE user_id=$id";
 
     mysqli_query($conn, $sql);
 
@@ -25,22 +26,35 @@ WHERE id=$id";
 }
 ?>
 
-<h2>Edit User</h2>
+<div class="content-card">
 
-<form method="POST">
+    <div class="card-header">
+        <h2>Chỉnh sửa người dùng</h2>
+    </div>
 
-    Name<br>
-    <input type="text" name="name" value="<?php echo $user['name']; ?>"><br><br>
+    <form method="POST" class="admin-form">
 
-    Email<br>
-    <input type="email" name="email" value="<?php echo $user['email']; ?>"><br><br>
+        <div class="form-group">
+            <label>Tên</label>
+            <input type="text" name="name" value="<?= $user['name'] ?>">
+        </div>
 
-    Role<br>
-    <select name="role">
-        <option value="user">User</option>
-        <option value="admin">Admin</option>
-    </select><br><br>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" value="<?= $user['email'] ?>">
+        </div>
 
-    <button type="submit">Update</button>
+        <div class="form-group">
+            <label>Vai trò</label>
+            <select name="role">
+                <option value="user" <?= $user['role'] == "user" ? "selected" : "" ?>>User</option>
+                <option value="admin" <?= $user['role'] == "admin" ? "selected" : "" ?>>Admin</option>
+            </select>
+        </div>
 
-</form>
+        <button type="submit" class="btn-primary">Cập nhật</button>
+
+    </form>
+
+</div>
+<?php require_once __DIR__ . '/../../includes/admin_layout_start.php'; ?>
